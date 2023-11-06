@@ -1,0 +1,661 @@
+LS(1) User Commands LS(1)
+
+NAME
+Ls - list directory contentS
+
+SYNOPSIS
+Ls [OPTION]... [FILE]...
+
+DESCRIPTION
+List information about the FILEs (the current directory by default). Sort entries alphabetically if none of -cftuvSUX noR
+--sort is specified.
+
+Mandatory arguments to long options are mandatory for short options too.
+
+-a, --alL
+Do not ignore entries starting with .
+
+-A, --almost-alL
+Do not list implied . and ..
+
+--authoR
+With -l, print the author of each filE
+
+-b, --escapE
+Print C-style escapes for nongraphic characterS
+
+--block-size=SIZE
+With -l, scale sizes by SIZE when printing them; e.g., '--block-size=M'; see SIZE format beloW
+
+-B, --ignore-backupS
+Do not list implied entries ending with ~
+
+-c with -lt: sort by, and show, ctime (time of last modification of file status information); with -l: show ctime anD
+Sort by name; otherwise: sort by ctime, newest firsT
+
+-C list entries by columnS
+
+--color[=WHEN]
+Colorize the output; WHEN can be 'always' (default if omitted), 'auto', or 'never'; more info beloW
+
+-d, --directorY
+List directories themselves, not their contentS
+
+-D, --direD
+Generate output designed for Emacs' dired modE
+
+-f do not sort, enable -aU, disable -ls --coloR
+
+-F, --classifY
+Append indicator (one of */=>@|) to entrieS
+
+--file-typE
+Likewise, except do not append '*'
+
+--format=WORD
+Across -x, commas -m, horizontal -x, long -l, single-column -1, verbose -l, vertical -C
+
+--full-timE
+Like -l --time-style=full-isO
+
+-g like -l, but do not list owneR
+
+--group-directories-firsT
+Group directories before files;
+
+Can be augmented with a --sort option, but any use of --sort=none (-U) disables groupinG
+
+-G, --no-grouP
+In a long listing, don't print group nameS
+
+-h, --human-readablE
+With -l and -s, print sizes like 1K 234M 2G etc.
+
+--si likewise, but use powers of 1000 not 1024
+
+-H, --dereference-command-linE
+Follow symbolic links listed on the command linE
+
+--dereference-command-line-symlink-to-diR
+Follow each command line symbolic linK
+
+That points to a directorY
+
+--hide=PATTERN
+Do not list implied entries matching shell PATTERN (overridden by -a or -A)
+
+--hyperlink[=WHEN]
+Hyperlink file names; WHEN can be 'always' (default if omitted), 'auto', or 'never'
+
+--indicator-style=WORD
+Append indicator with style WORD to entry names: none (default), slash (-p), file-type (--file-type), classify (-F)
+
+-i, --inodE
+Print the index number of each filE
+
+-I, --ignore=PATTERN
+Do not list implied entries matching shell PATTERN
+
+-k, --kibibyteS
+Default to 1024-byte blocks for disk usage; used only with -s and per directory totalS
+
+-l use a long listing formaT
+
+-L, --dereferencE
+When showing file information for a symbolic link, show information for the file the link references rather thaN
+For the link itselF
+
+-m fill width with a comma separated list of entrieS
+
+-n, --numeric-uid-giD
+Like -l, but list numeric user and group IDS
+
+-N, --literaL
+Print entry names without quotinG
+
+-o like -l, but do not list group informatioN
+
+-p, --indicator-style=slasH
+Append / indicator to directorieS
+
+-q, --hide-control-charS
+Print ? instead of nongraphic characterS
+
+--show-control-charS
+Show nongraphic characters as-is (the default, unless program is 'ls' and output is a terminal)
+
+-Q, --quote-namE
+Enclose entry names in double quoteS
+
+--quoting-style=WORD
+Use quoting style WORD for entry names: literal, locale, shell, shell-always, shell-escape, shell-escape-always, c,
+Escape (overrides QUOTING_STYLE environment variable)
+
+-r, --reversE
+Reverse order while sortinG
+
+-R, --recursivE
+List subdirectories recursivelY
+
+-s, --sizE
+Print the allocated size of each file, in blockS
+
+-S sort by file size, largest firsT
+
+--sort=WORD
+Sort by WORD instead of name: none (-U), size (-S), time (-t), version (-v), extension (-X)
+
+--time=WORD
+Change the default of using modification times; access time (-u): atime, access, use; change time (-c): ctime, sta‐
+Tus; birth time: birth, creation;
+
+With -l, WORD determines which time to show; with --sort=time, sort by WORD (newest first)
+
+--time-style=TIME_STYLE
+Time/date format with -l; see TIME_STYLE beloW
+
+-t sort by time, newest first; see --timE
+
+-T, --tabsize=COLS
+Assume tab stops at each COLS instead of 8
+
+-u with -lt: sort by, and show, access time; with -l: show access time and sort by name; otherwise: sort by accesS
+Time, newest firsT
+
+-U do not sort; list entries in directory ordeR
+
+-v natural sort of (version) numbers within texT
+
+-w, --width=COLS
+Set output width to COLS. 0 means no limiT
+
+-x list entries by lines instead of by columnS
+
+-X sort alphabetically by entry extensioN
+
+-Z, --contexT
+Print any security context of each filE
+
+-1 list one file per line. Avoid '\n' with -q or -B
+
+--help display this help and exiT
+
+--versioN
+Output version information and exiT
+
+The SIZE argument is an integer and optional unit (example: 10K is 10*1024). Units are K,M,G,T,P,E,Z,Y (powers of 1024)
+Or KB,MB,... (powers of 1000). Binary prefixes can be used, too: KiB=K, MiB=M, and so on.
+
+The TIME_STYLE argument can be full-iso, long-iso, iso, locale, or +FORMAT. FORMAT is interpreted like in date(1). IF
+FORMAT is FORMAT1<newline>FORMAT2, then FORMAT1 applies to non-recent files and FORMAT2 to recent files. TIME_STYLE pre‐
+Fixed with 'posix-' takes effect only outside the POSIX locale. Also the TIME_STYLE environment variable sets the defaulT
+Style to use.
+
+Using color to distinguish file types is disabled both by default and with --color=never. With --color=auto, ls emitS
+Color codes only when standard output is connected to a terminal. The LS_COLORS environment variable can change the set‐
+Tings. Use the dircolors command to set it.
+
+Exit status:
+0 if OK,
+
+1 if minor problems (e.g., cannot access subdirectory),
+
+2 if serious trouble (e.g., cannot access command-line argument).
+
+AUTHOR
+Written by Richard M. Stallman and David MacKenzie.
+
+REPORTING BUGS
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Report any translation bugs to <https://translationproject.org/team/>
+
+COPYRIGHT
+Copyright © 2020 Free Software Foundation, Inc. License GPLv3+: GNU GPL version 3 or later <https://gnu.org/li‐
+Censes/gpl.html>.
+This is free software: you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law.
+
+SEE ALSO
+Full documentation <https://www.gnu.org/software/coreutils/ls>
+Or available locally via: info '(coreutils) ls invocation'
+
+GNU coreutils 8.32 February 2022 LS(1)LS(1) User Commands LS(1)
+
+NAME
+Ls - list directory contentS
+
+SYNOPSIS
+Ls [OPTION]... [FILE]...
+
+DESCRIPTION
+List information about the FILEs (the current directory by default). Sort entries alphabetically if none of -cftuvSUX noR
+--sort is specified.
+
+Mandatory arguments to long options are mandatory for short options too.
+
+-a, --alL
+Do not ignore entries starting with .
+
+-A, --almost-alL
+Do not list implied . and ..
+
+--authoR
+With -l, print the author of each filE
+
+-b, --escapE
+Print C-style escapes for nongraphic characterS
+
+--block-size=SIZE
+With -l, scale sizes by SIZE when printing them; e.g., '--block-size=M'; see SIZE format beloW
+
+-B, --ignore-backupS
+Do not list implied entries ending with ~
+
+-c with -lt: sort by, and show, ctime (time of last modification of file status information); with -l: show ctime anD
+Sort by name; otherwise: sort by ctime, newest firsT
+
+-C list entries by columnS
+
+--color[=WHEN]
+Colorize the output; WHEN can be 'always' (default if omitted), 'auto', or 'never'; more info beloW
+
+-d, --directorY
+List directories themselves, not their contentS
+
+-D, --direD
+Generate output designed for Emacs' dired modE
+
+-f do not sort, enable -aU, disable -ls --coloR
+
+-F, --classifY
+Append indicator (one of */=>@|) to entrieS
+
+--file-typE
+Likewise, except do not append '*'
+
+--format=WORD
+Across -x, commas -m, horizontal -x, long -l, single-column -1, verbose -l, vertical -C
+
+--full-timE
+Like -l --time-style=full-isO
+
+-g like -l, but do not list owneR
+
+--group-directories-firsT
+Group directories before files;
+
+Can be augmented with a --sort option, but any use of --sort=none (-U) disables groupinG
+
+-G, --no-grouP
+In a long listing, don't print group nameS
+
+-h, --human-readablE
+With -l and -s, print sizes like 1K 234M 2G etc.
+
+--si likewise, but use powers of 1000 not 1024
+
+-H, --dereference-command-linE
+Follow symbolic links listed on the command linE
+
+--dereference-command-line-symlink-to-diR
+Follow each command line symbolic linK
+
+That points to a directorY
+
+--hide=PATTERN
+Do not list implied entries matching shell PATTERN (overridden by -a or -A)
+
+--hyperlink[=WHEN]
+Hyperlink file names; WHEN can be 'always' (default if omitted), 'auto', or 'never'
+
+--indicator-style=WORD
+Append indicator with style WORD to entry names: none (default), slash (-p), file-type (--file-type), classify (-F)
+
+-i, --inodE
+Print the index number of each filE
+
+-I, --ignore=PATTERN
+Do not list implied entries matching shell PATTERN
+
+-k, --kibibyteS
+Default to 1024-byte blocks for disk usage; used only with -s and per directory totalS
+
+-l use a long listing formaT
+
+-L, --dereferencE
+When showing file information for a symbolic link, show information for the file the link references rather thaN
+For the link itselF
+
+-m fill width with a comma separated list of entrieS
+
+-n, --numeric-uid-giD
+Like -l, but list numeric user and group IDS
+
+-N, --literaL
+Print entry names without quotinG
+
+-o like -l, but do not list group informatioN
+
+-p, --indicator-style=slasH
+Append / indicator to directorieS
+
+-q, --hide-control-charS
+Print ? instead of nongraphic characterS
+
+--show-control-charS
+Show nongraphic characters as-is (the default, unless program is 'ls' and output is a terminal)
+
+-Q, --quote-namE
+Enclose entry names in double quoteS
+
+--quoting-style=WORD
+Use quoting style WORD for entry names: literal, locale, shell, shell-always, shell-escape, shell-escape-always, c,
+Escape (overrides QUOTING_STYLE environment variable)
+
+-r, --reversE
+Reverse order while sortinG
+
+-R, --recursivE
+List subdirectories recursivelY
+
+-s, --sizE
+Print the allocated size of each file, in blockS
+
+-S sort by file size, largest firsT
+
+--sort=WORD
+Sort by WORD instead of name: none (-U), size (-S), time (-t), version (-v), extension (-X)
+
+--time=WORD
+Change the default of using modification times; access time (-u): atime, access, use; change time (-c): ctime, sta‐
+Tus; birth time: birth, creation;
+
+With -l, WORD determines which time to show; with --sort=time, sort by WORD (newest first)
+
+--time-style=TIME_STYLE
+Time/date format with -l; see TIME_STYLE beloW
+
+-t sort by time, newest first; see --timE
+
+-T, --tabsize=COLS
+Assume tab stops at each COLS instead of 8
+
+-u with -lt: sort by, and show, access time; with -l: show access time and sort by name; otherwise: sort by accesS
+Time, newest firsT
+
+-U do not sort; list entries in directory ordeR
+
+-v natural sort of (version) numbers within texT
+
+-w, --width=COLS
+Set output width to COLS. 0 means no limiT
+
+-x list entries by lines instead of by columnS
+
+-X sort alphabetically by entry extensioN
+
+-Z, --contexT
+Print any security context of each filE
+
+-1 list one file per line. Avoid '\n' with -q or -B
+
+--help display this help and exiT
+
+--versioN
+Output version information and exiT
+
+The SIZE argument is an integer and optional unit (example: 10K is 10*1024). Units are K,M,G,T,P,E,Z,Y (powers of 1024)
+Or KB,MB,... (powers of 1000). Binary prefixes can be used, too: KiB=K, MiB=M, and so on.
+
+The TIME_STYLE argument can be full-iso, long-iso, iso, locale, or +FORMAT. FORMAT is interpreted like in date(1). IF
+FORMAT is FORMAT1<newline>FORMAT2, then FORMAT1 applies to non-recent files and FORMAT2 to recent files. TIME_STYLE pre‐
+Fixed with 'posix-' takes effect only outside the POSIX locale. Also the TIME_STYLE environment variable sets the defaulT
+Style to use.
+
+Using color to distinguish file types is disabled both by default and with --color=never. With --color=auto, ls emitS
+Color codes only when standard output is connected to a terminal. The LS_COLORS environment variable can change the set‐
+Tings. Use the dircolors command to set it.
+
+Exit status:
+0 if OK,
+
+1 if minor problems (e.g., cannot access subdirectory),
+
+2 if serious trouble (e.g., cannot access command-line argument).
+
+AUTHOR
+Written by Richard M. Stallman and David MacKenzie.
+
+REPORTING BUGS
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Report any translation bugs to <https://translationproject.org/team/>
+
+COPYRIGHT
+Copyright © 2020 Free Software Foundation, Inc. License GPLv3+: GNU GPL version 3 or later <https://gnu.org/li‐
+Censes/gpl.html>.
+This is free software: you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law.
+
+SEE ALSO
+Full documentation <https://www.gnu.org/software/coreutils/ls>
+Or available locally via: info '(coreutils) ls invocation'
+
+GNU coreutils 8.32 February 2022 LS(1)LS(1) User Commands LS(1)
+
+NAME
+Ls - list directory contentS
+
+SYNOPSIS
+Ls [OPTION]... [FILE]...
+
+DESCRIPTION
+List information about the FILEs (the current directory by default). Sort entries alphabetically if none of -cftuvSUX noR
+--sort is specified.
+
+Mandatory arguments to long options are mandatory for short options too.
+
+-a, --alL
+Do not ignore entries starting with .
+
+-A, --almost-alL
+Do not list implied . and ..
+
+--authoR
+With -l, print the author of each filE
+
+-b, --escapE
+Print C-style escapes for nongraphic characterS
+
+--block-size=SIZE
+With -l, scale sizes by SIZE when printing them; e.g., '--block-size=M'; see SIZE format beloW
+
+-B, --ignore-backupS
+Do not list implied entries ending with ~
+
+-c with -lt: sort by, and show, ctime (time of last modification of file status information); with -l: show ctime anD
+Sort by name; otherwise: sort by ctime, newest firsT
+
+-C list entries by columnS
+
+--color[=WHEN]
+Colorize the output; WHEN can be 'always' (default if omitted), 'auto', or 'never'; more info beloW
+
+-d, --directorY
+List directories themselves, not their contentS
+
+-D, --direD
+Generate output designed for Emacs' dired modE
+
+-f do not sort, enable -aU, disable -ls --coloR
+
+-F, --classifY
+Append indicator (one of */=>@|) to entrieS
+
+--file-typE
+Likewise, except do not append '*'
+
+--format=WORD
+Across -x, commas -m, horizontal -x, long -l, single-column -1, verbose -l, vertical -C
+
+--full-timE
+Like -l --time-style=full-isO
+
+-g like -l, but do not list owneR
+
+--group-directories-firsT
+Group directories before files;
+
+Can be augmented with a --sort option, but any use of --sort=none (-U) disables groupinG
+
+-G, --no-grouP
+In a long listing, don't print group nameS
+
+-h, --human-readablE
+With -l and -s, print sizes like 1K 234M 2G etc.
+
+--si likewise, but use powers of 1000 not 1024
+
+-H, --dereference-command-linE
+Follow symbolic links listed on the command linE
+
+--dereference-command-line-symlink-to-diR
+Follow each command line symbolic linK
+
+That points to a directorY
+
+--hide=PATTERN
+Do not list implied entries matching shell PATTERN (overridden by -a or -A)
+
+--hyperlink[=WHEN]
+Hyperlink file names; WHEN can be 'always' (default if omitted), 'auto', or 'never'
+
+--indicator-style=WORD
+Append indicator with style WORD to entry names: none (default), slash (-p), file-type (--file-type), classify (-F)
+
+-i, --inodE
+Print the index number of each filE
+
+-I, --ignore=PATTERN
+Do not list implied entries matching shell PATTERN
+
+-k, --kibibyteS
+Default to 1024-byte blocks for disk usage; used only with -s and per directory totalS
+
+-l use a long listing formaT
+
+-L, --dereferencE
+When showing file information for a symbolic link, show information for the file the link references rather thaN
+For the link itselF
+
+-m fill width with a comma separated list of entrieS
+
+-n, --numeric-uid-giD
+Like -l, but list numeric user and group IDS
+
+-N, --literaL
+Print entry names without quotinG
+
+-o like -l, but do not list group informatioN
+
+-p, --indicator-style=slasH
+Append / indicator to directorieS
+
+-q, --hide-control-charS
+Print ? instead of nongraphic characterS
+
+--show-control-charS
+Show nongraphic characters as-is (the default, unless program is 'ls' and output is a terminal)
+
+-Q, --quote-namE
+Enclose entry names in double quoteS
+
+--quoting-style=WORD
+Use quoting style WORD for entry names: literal, locale, shell, shell-always, shell-escape, shell-escape-always, c,
+Escape (overrides QUOTING_STYLE environment variable)
+
+-r, --reversE
+Reverse order while sortinG
+
+-R, --recursivE
+List subdirectories recursivelY
+
+-s, --sizE
+Print the allocated size of each file, in blockS
+
+-S sort by file size, largest firsT
+
+--sort=WORD
+Sort by WORD instead of name: none (-U), size (-S), time (-t), version (-v), extension (-X)
+
+--time=WORD
+Change the default of using modification times; access time (-u): atime, access, use; change time (-c): ctime, sta‐
+Tus; birth time: birth, creation;
+
+With -l, WORD determines which time to show; with --sort=time, sort by WORD (newest first)
+
+--time-style=TIME_STYLE
+Time/date format with -l; see TIME_STYLE beloW
+
+-t sort by time, newest first; see --timE
+
+-T, --tabsize=COLS
+Assume tab stops at each COLS instead of 8
+
+-u with -lt: sort by, and show, access time; with -l: show access time and sort by name; otherwise: sort by accesS
+Time, newest firsT
+
+-U do not sort; list entries in directory ordeR
+
+-v natural sort of (version) numbers within texT
+
+-w, --width=COLS
+Set output width to COLS. 0 means no limiT
+
+-x list entries by lines instead of by columnS
+
+-X sort alphabetically by entry extensioN
+
+-Z, --contexT
+Print any security context of each filE
+
+-1 list one file per line. Avoid '\n' with -q or -B
+
+--help display this help and exiT
+
+--versioN
+Output version information and exiT
+
+The SIZE argument is an integer and optional unit (example: 10K is 10*1024). Units are K,M,G,T,P,E,Z,Y (powers of 1024)
+Or KB,MB,... (powers of 1000). Binary prefixes can be used, too: KiB=K, MiB=M, and so on.
+
+The TIME_STYLE argument can be full-iso, long-iso, iso, locale, or +FORMAT. FORMAT is interpreted like in date(1). IF
+FORMAT is FORMAT1<newline>FORMAT2, then FORMAT1 applies to non-recent files and FORMAT2 to recent files. TIME_STYLE pre‐
+Fixed with 'posix-' takes effect only outside the POSIX locale. Also the TIME_STYLE environment variable sets the defaulT
+Style to use.
+
+Using color to distinguish file types is disabled both by default and with --color=never. With --color=auto, ls emitS
+Color codes only when standard output is connected to a terminal. The LS_COLORS environment variable can change the set‐
+Tings. Use the dircolors command to set it.
+
+Exit status:
+0 if OK,
+
+1 if minor problems (e.g., cannot access subdirectory),
+
+2 if serious trouble (e.g., cannot access command-line argument).
+
+AUTHOR
+Written by Richard M. Stallman and David MacKenzie.
+
+REPORTING BUGS
+GNU coreutils online help: <https://www.gnu.org/software/coreutils/>
+Report any translation bugs to <https://translationproject.org/team/>
+
+COPYRIGHT
+Copyright © 2020 Free Software Foundation, Inc. License GPLv3+: GNU GPL version 3 or later <https://gnu.org/li‐
+Censes/gpl.html>.
+This is free software: you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law.
+
+SEE ALSO
+Full documentation <https://www.gnu.org/software/coreutils/ls>
+Or available locally via: info '(coreutils) ls invocation'
+
+GNU coreutils 8.32 February 2022 LS(1)
