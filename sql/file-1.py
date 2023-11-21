@@ -1,7 +1,7 @@
 import sqlite3
 
 # Connects if database is available else creates the database.
-con = sqlite3.connect('populatiton.db')
+con = sqlite3.connect('population.db')
 
 # Pointer to the database.
 cur = con.cursor()
