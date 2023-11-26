@@ -1,0 +1,44 @@
+Long Term Memory is known as Cell State(c[t]).
+Short Term Memory is known as Hidden State(h[t]).
+
+Inputs:
+   Prev Cell State.
+   Prev Hidden State.
+   Input for the Current Time Stamp.
+
+Outputs:
+   Current Hidden State.
+   Current Cell State.
+
+Processing:
+   1. Update Cell State.
+      a. Remove.
+      b. Add.
+   2. Calculate ht.
+
+Gates:
+   1. Forget Gate - To remove something from Cell State.
+      a. Calculate f[t].
+      b. c[t] = c[t-1] x f[t].
+
+   2. Input Gate - To add something to Cell State.
+      a. Calculate Candidate Cell State from tanh. (Potentail Information to be added).
+      b. Calculate i[t] from sigmoid. (Decides what to add from Candidate to Cell State).
+      c. c[t] = c[t] + (bar) c[t] x i[t].
+   
+   3. Output Gate - To calculate Hidden State.
+      a. Calculate tanh(c[t]).
+      b. Calculate ot from sigmoid.
+      c. h[t] = tanh(c[t]) * o[t].
+
+Both ht and ct are vectors of the same dimensions and equal to number of nodes.
+There is always concantination of h[t-1] and x[t] for sigmoid function.
+
+Pointwise Operators (Red):
+   x: Pointwise Multiplication.
+   +: Pointwise Addition.
+   tanh: Pointwise tanh.
+
+Neural Network Layers (Yellow):
+   Number of nodes in each layer is dynamic, also known as hyperparameter.
+   All layers have the same number of nodes.

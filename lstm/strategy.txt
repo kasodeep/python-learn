@@ -1,0 +1,17 @@
+Text Generator which generates the next word.
+We are going to use Supervised Learning.
+
+Problem 1:
+How we will convert data-set where there is mapping of input and output.
+
+Problem 2:
+We need to convert text to numbers, basically vectorization.
+
+Problem 3:
+It is a classification task and not regression.
+We are going to use multi-class classification.
+
+We are going to have 3 layers:
+1. Embeddding: It will provide dense vector. (Better Representation)
+2. LSTM
+3. Dense
